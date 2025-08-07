@@ -1,0 +1,1457 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sustainable Desalination Startup: Izmir Pilot Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --secondary: #065f46;
+            --accent: #0f766e;
+            --neutral: #374151;
+            --base-100: #ffffff;
+            --base-200: #f8fafc;
+            --base-300: #e2e8f0;
+        }
+        
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9) 0%, rgba(6, 95, 70, 0.8) 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 280px;
+            max-height: calc(100vh - 40px);
+            overflow-y: auto;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(30, 58, 138, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-content {
+            margin-left: 320px;
+            max-width: 900px;
+        }
+        
+        .citation {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--primary);
+            transition: all 0.3s ease;
+        }
+        
+        .citation:hover {
+            background-color: rgba(30, 58, 138, 0.1);
+            border-bottom: 1px solid var(--primary);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .bento-main {
+            grid-row: span 2;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+        
+        .bento-side {
+            background: var(--base-200);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .pull-quote {
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--primary);
+            border-left: 4px solid var(--accent);
+            padding-left: 20px;
+            margin: 30px 0;
+        }
+        
+        /* Mermaid diagram styles */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            min-height: 300px;
+            max-height: 800px;
+            background: #ffffff;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mermaid-container .mermaid {
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            cursor: grab;
+            transition: transform 0.3s ease;
+            transform-origin: center center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            touch-action: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        .mermaid-container .mermaid svg {
+            max-width: 100%;
+            height: 100%;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .mermaid-container .mermaid:active {
+            cursor: grabbing;
+        }
+        
+        .mermaid-container.zoomed .mermaid {
+            height: 100%;
+            width: 100%;
+            cursor: grab;
+        }
+        
+        .mermaid-controls {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 10px;
+            z-index: 20;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 8px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .mermaid-control-btn {
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #374151;
+            font-size: 14px;
+            min-width: 36px;
+            height: 36px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .mermaid-control-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-1px);
+        }
+        
+        .mermaid-control-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Enhanced mermaid theme with better contrast */
+        .mermaid .node rect,
+        .mermaid .node circle,
+        .mermaid .node ellipse,
+        .mermaid .node polygon {
+            fill: #ffffff;
+            stroke: #1e3a8a;
+            stroke-width: 2px;
+        }
+        
+        .mermaid .node .label {
+            color: #1f2937;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .mermaid .edgePath .path {
+            stroke: #6b7280;
+            stroke-width: 2px;
+        }
+        
+        .mermaid .edgeLabel {
+            background-color: #ffffff;
+            color: #374151;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        /* Timeline specific styling with better contrast */
+        .mermaid .section {
+            fill: #f8fafc !important;
+            stroke: #1e3a8a !important;
+            stroke-width: 2px !important;
+        }
+        
+        .mermaid .section-title {
+            fill: #1f2937 !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+        }
+        
+        .mermaid .task {
+            fill: #ffffff !important;
+            stroke: #0f766e !important;
+            stroke-width: 2px !important;
+        }
+        
+        .mermaid .task-text {
+            fill: #1f2937 !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+        }
+        
+        .mermaid .task-text-light {
+            fill: #6b7280 !important;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px !important;
+            font-weight: 500 !important;
+        }
+        
+        .mermaid .active-task {
+            fill: #ecfdf5 !important;
+            stroke: #059669 !important;
+            stroke-width: 3px !important;
+        }
+        
+        .mermaid .active-task-text {
+            fill: #065f46 !important;
+            font-weight: 700 !important;
+        }
+        
+        .mermaid .grid-line {
+            stroke: #e5e7eb !important;
+        }
+        
+        .mermaid .today {
+            stroke: #dc2626 !important;
+            stroke-width: 2px !important;
+        }
+        
+        @media (max-width: 1024px) {
+            .mermaid-control-btn:not(.reset-zoom) {
+                display: none;
+            }
+            .mermaid-controls {
+                top: auto;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .toc-fixed {
+                display: none;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 0 15px;
+            }
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .bento-main {
+                height: auto;
+                min-height: 300px;
+            }
+            .hero-gradient h1 {
+                font-size: 2.5rem;
+            }
+            .hero-gradient p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 font-sans text-gray-800">
+    <!-- Fixed Table of Contents -->
+    <nav class="toc-fixed">
+      <h3 class="font-serif font-semibold text-lg text-gray-800 mb-4">Contents</h3>
+      <ul class="space-y-2 text-sm">
+        <li>
+          <a href="#executive-summary" class="text-blue-600 hover:text-blue-800 transition-colors">Executive Summary</a>
+        </li>
+        <li>
+          <a href="#market-analysis" class="text-blue-600 hover:text-blue-800 transition-colors">Market Analysis</a>
+        </li>
+        <li>
+          <a href="#technology" class="text-blue-600 hover:text-blue-800 transition-colors">Technology Strategy</a>
+        </li>
+        <li>
+          <a href="#financial" class="text-blue-600 hover:text-blue-800 transition-colors">Financial Modeling</a>
+        </li>
+        <li>
+          <a href="#implementation" class="text-blue-600 hover:text-blue-800 transition-colors">Implementation Plan</a>
+        </li>
+        <li>
+          <a href="#partnerships" class="text-blue-600 hover:text-blue-800 transition-colors">Strategic Partnerships</a>
+        </li>
+        <li>
+          <a href="#risks" class="text-blue-600 hover:text-blue-800 transition-colors">Risk Assessment</a>
+        </li>
+        <li>
+          <a href="#opportunities" class="text-blue-600 hover:text-blue-800 transition-colors">Future Opportunities</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Hero Section -->
+      <div class="bento-grid">
+        <div class="bento-main relative">
+          <img src="https://kimi-web-img.moonshot.cn/img/ent.news/284cd2f4f4485e91381151629511934631d02839.jpg" alt="Aerial view of solar panels and desalination plant in Izmir" class="w-full h-full object-cover" size="large" aspect="wide" style="photo" query="solar panels desalination plant Izmir aerial view" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          <div class="absolute inset-0 hero-gradient flex items-center justify-center">
+            <div class="text-center text-white px-8">
+              <h1 class="font-serif text-5xl font-bold mb-4 leading-tight">
+                <em>A Strategic Blueprint for</em>
+                <br/>
+                Sustainable Desalination
+              </h1>
+              <p class="text-xl font-light max-w-2xl mx-auto">
+                Leveraging renewable energy and proven technology to address water scarcity in Izmir, Turkey
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento-side">
+          <div class="flex items-center mb-3">
+            <i class="fas fa-water text-teal-600 mr-3"></i>
+            <h3 class="font-semibold">Key Technology</h3>
+          </div>
+          <p class="text-sm text-gray-600">Containerized Reverse Osmosis with hybrid solar-wind power</p>
+        </div>
+
+        <div class="bento-side">
+          <div class="flex items-center mb-3">
+            <i class="fas fa-target text-blue-600 mr-3"></i>
+            <h3 class="font-semibold">Target LCOW</h3>
+          </div>
+          <p class="text-sm text-gray-600">$1.00 - $2.00 USD/m³ for pilot demonstration</p>
+        </div>
+      </div>
+
+      <!-- Executive Summary -->
+      <section id="executive-summary" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Executive Summary</h2>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-xl text-gray-700 leading-relaxed mb-6">
+            The core mission of this venture is to establish a <strong>profitable, viable, modular, and sustainable desalination enterprise</strong> in Turkey, beginning with a pilot project in Izmir. The startup will be built on the principles of environmental responsibility, economic viability, and technological innovation.
+          </p>
+
+          <div class="bg-blue-50 border-l-4 border-blue-600 p-6 my-8">
+            <h3 class="font-serif text-xl font-semibold mb-3">Strategic Pillars</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+              <div>
+                <i class="fas fa-cogs text-blue-600 text-2xl mb-3"></i>
+                <h4 class="font-semibold mb-2">Technology</h4>
+                <p class="text-sm text-gray-700">Reverse Osmosis with Energy Recovery Devices for maximum efficiency</p>
+              </div>
+              <div>
+                <i class="fas fa-solar-panel text-green-600 text-2xl mb-3"></i>
+                <h4 class="font-semibold mb-2">Energy</h4>
+                <p class="text-sm text-gray-700">Hybrid solar-wind system for reliable, sustainable power</p>
+              </div>
+              <div>
+                <i class="fas fa-handshake text-teal-600 text-2xl mb-3"></i>
+                <h4 class="font-semibold mb-2">Partnerships</h4>
+                <p class="text-sm text-gray-700">Collaboration with local university and government</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-lg text-gray-700 leading-relaxed">
+            The pilot project will serve as a <strong>modular demonstration of feasibility</strong>, designed with a low initial budget and utilizing containerized components for rapid deployment. This approach provides a clear pathway for future capacity expansion as market demand grows.
+          </p>
+        </div>
+      </section>
+
+      <!-- Market Analysis -->
+      <section id="market-analysis" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Market Analysis and Opportunity Assessment</h2>
+
+        <div class="mb-8">
+          <img src="https://kimi-web-img.moonshot.cn/img/img.turkiyetoday.com/c9ee71e6243406cd6ded1d486b24ef6ec9c4cbc0.jpg" alt="Empty reservoir in Turkey showing drought impact" class="w-full h-64 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="drought reservoir Turkey" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+
+          <div class="pull-quote">
+            &#34;Authorities have been forced to restrict drinking water access to just 10 hours a day, with plans to further reduce this to a mere six hours in the city of Izmir itself.&#34;
+          </div>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">The Water Crisis in Izmir</h3>
+
+        <p class="text-gray-700 mb-6">
+          The strategic impetus for establishing a renewable energy-powered desalination startup in Izmir is underscored by a severe and escalating water crisis. The primary dam supplying the area has seen its water level plummet to a staggering <strong>three percent of its total capacity</strong>
+          <a href="https://www.purdueexponent.org/news/national/water-shortages-spell-trouble-on-turkeys-tourist-coast/article_223c7cd2-ae60-5326-9c96-a094e35bbe0f.html" class="citation">[534]</a>.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-red-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-red-800 mb-3">Current Challenges</h4>
+            <ul class="space-y-2 text-sm text-red-700">
+              <li>• Water rationing: 10 hours/day in Cesme, 6 hours/day planned for Izmir</li>
+              <li>• Groundwater depletion: Wells now require drilling to 170m vs. 8-9m historically</li>
+              <li>• 88% of Turkey&#39;s territory at risk of desertification</li>
+            </ul>
+          </div>
+
+          <div class="bg-amber-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-amber-800 mb-3">Tourism Impact</h4>
+            <ul class="space-y-2 text-sm text-amber-700">
+              <li>• Tourists consume 2-3x more water than local residents</li>
+              <li>• Small hotel occupancy dropped from fully booked to 80% empty</li>
+              <li>• Tourism industry identifies desalination as primary solution</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Target Market Segments</h3>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Segment</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Characteristics</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Revenue Potential</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3 font-medium">Municipal</td>
+                <td class="border border-gray-300 px-4 py-3">Large, stable contracts with stringent quality requirements</td>
+                <td class="border border-gray-300 px-4 py-3 text-green-600">High</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3 font-medium">Industrial/Tourism</td>
+                <td class="border border-gray-300 px-4 py-3">Premium pricing, reliability-driven demand</td>
+                <td class="border border-gray-300 px-4 py-3 text-green-600">Highest</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3 font-medium">Agricultural</td>
+                <td class="border border-gray-300 px-4 py-3">High volume, price-sensitive market</td>
+                <td class="border border-gray-300 px-4 py-3 text-amber-600">Medium</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Technology Strategy -->
+      <section id="technology" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Technological Strategy: Leveraging Proven Solutions</h2>
+
+        <div class="mb-8">
+          <img src="https://kimi-web-img.moonshot.cn/img/kysearo.com/a152e309974ed311cfd66e3568fc3faded662e7d.png" alt="Containerized reverse osmosis desalination system" class="w-full h-64 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="containerized reverse osmosis system" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Core Desalination Technology: Reverse Osmosis</h3>
+
+        <p class="text-gray-700 mb-6">
+          Reverse Osmosis has become the global standard for seawater desalination due to its superior energy efficiency and technological maturity. Modern RO systems achieve specific energy consumption of <strong>3 to 6 kWh per cubic meter</strong>
+          <a href="https://www.chunkerowaterplant.com/news/water-desalination-station" class="citation">[836]</a>, significantly lower than thermal desalination methods.
+        </p>
+
+        <div class="bg-blue-50 p-6 rounded-lg mb-8">
+          <h4 class="font-semibold text-blue-800 mb-4">System Components</h4>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h5 class="font-medium mb-2">Pre-treatment</h5>
+              <p class="text-sm text-blue-700">Ultrafiltration membranes, chemical dosing for coagulation</p>
+            </div>
+            <div>
+              <h5 class="font-medium mb-2">RO Membranes</h5>
+              <p class="text-sm text-blue-700">Two-stage configuration for 45-50% recovery rate</p>
+            </div>
+            <div>
+              <h5 class="font-medium mb-2">Post-treatment</h5>
+              <p class="text-sm text-blue-700">Remineralization, pH adjustment, disinfection</p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Renewable Energy Integration</h3>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-sun text-yellow-600 text-2xl mr-3"></i>
+              <h4 class="font-semibold text-orange-800">Solar PV (Primary)</h4>
+            </div>
+            <ul class="space-y-2 text-sm text-orange-700">
+              <li>• LCOE: ~0.045 USD/kWh in Mediterranean climate</li>
+              <li>• Modular and easily expandable</li>
+              <li>• Excellent solar resource in Izmir</li>
+              <li>• PV-RO LCOW: 1.24 USD/m³ (Northern Cyprus study)</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-teal-50 to-blue-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-wind text-teal-600 text-2xl mr-3"></i>
+              <h4 class="font-semibold text-teal-800">Wind Power (Complementary)</h4>
+            </div>
+            <ul class="space-y-2 text-sm text-teal-700">
+              <li>• Generation peaks during night/winter months</li>
+              <li>• Electricity cost as low as 2.68 US cents/kWh</li>
+              <li>• Reduces grid dependency by up to 31%</li>
+              <li>• Complementary to solar generation profile</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-8">
+          <h4 class="font-semibold mb-3">System Modularity and Scalability</h4>
+          <p class="text-gray-700 mb-4">
+            The pilot project will utilize <strong>containerized or skid-mounted solutions</strong> for rapid deployment and easy scalability. This &#34;building block&#34; approach allows incremental capacity expansion as demand grows.
+          </p>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <h5 class="font-medium mb-2">Containerized Benefits</h5>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• Factory assembly and testing</li>
+                <li>• Reduced on-site construction time</li>
+                <li>• Easy transport and relocation</li>
+              </ul>
+            </div>
+            <div>
+              <h5 class="font-medium mb-2">Scalability Strategy</h5>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• &#34;Numbering up&#34; identical units</li>
+                <li>• Match capacity to market demand</li>
+                <li>• Low-risk expansion pathway</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Financial Modeling -->
+      <section id="financial" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Financial Modeling and Business Case</h2>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Levelized Cost of Water (LCOW) Analysis</h3>
+
+        <p class="text-gray-700 mb-6">
+          The Levelized Cost of Water is the key metric for assessing economic viability. Based on regional benchmarks, the target LCOW for the Izmir pilot project is <strong>$1.00 - $2.00 USD/m³</strong>.
+        </p>
+
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full border-collapse border border-gray-300 rounded-lg overflow-hidden">
+            <thead class="bg-gray-100">
+              <tr>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Project Location</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Energy Source</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">Technology</th>
+                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">LCOW (USD/m³)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3">Mersin, Turkey</td>
+                <td class="border border-gray-300 px-4 py-3">Hybrid PV-CSP</td>
+                <td class="border border-gray-300 px-4 py-3">RO</td>
+                <td class="border border-gray-300 px-4 py-3 font-medium">1.92</td>
+              </tr>
+              <tr class="bg-gray-50">
+                <td class="border border-gray-300 px-4 py-3">Northern Cyprus</td>
+                <td class="border border-gray-300 px-4 py-3">PV</td>
+                <td class="border border-gray-300 px-4 py-3">RO with ERD</td>
+                <td class="border border-gray-300 px-4 py-3 font-medium">1.26</td>
+              </tr>
+              <tr>
+                <td class="border border-gray-300 px-4 py-3">MENA Region</td>
+                <td class="border border-gray-300 px-4 py-3">Various</td>
+                <td class="border border-gray-300 px-4 py-3">Large-scale RO</td>
+                <td class="border border-gray-300 px-4 py-3 font-medium text-green-600">
+                  &lt; 0.50</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Revenue Streams and Business Model</h3>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-green-800 mb-4">Primary Revenue Streams</h4>
+            <div class="space-y-4">
+              <div>
+                <h5 class="font-medium mb-1">Direct Water Sales</h5>
+                <p class="text-sm text-green-700">Municipal, industrial, and agricultural customers</p>
+              </div>
+              <div>
+                <h5 class="font-medium mb-1">Water-as-a-Service (WaaS)</h5>
+                <p class="text-sm text-green-700">Long-term contracts with guaranteed supply</p>
+              </div>
+              <div>
+                <h5 class="font-medium mb-1">Excess Energy Sales</h5>
+                <p class="text-sm text-green-700">Grid connection for renewable energy export</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 p-6 rounded-lg">
+            <h4 class="font-semibold text-purple-800 mb-4">Innovation Opportunities</h4>
+            <div class="space-y-4">
+              <div>
+                <h5 class="font-medium mb-1">Brine Valorization</h5>
+                <p class="text-sm text-purple-700">Mineral extraction from desalination byproduct</p>
+              </div>
+              <div>
+                <h5 class="font-medium mb-1">Energy Island Concept</h5>
+                <p class="text-sm text-purple-700">Co-generation of water and power</p>
+              </div>
+              <div>
+                <h5 class="font-medium mb-1">Industry Integration</h5>
+                <p class="text-sm text-purple-700">Data centers, high-tech agriculture</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="font-serif text-2xl font-semibold mb-6">Funding Strategy</h3>
+
+        <div class="bg-blue-50 p-6 rounded-lg">
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h4 class="font-semibold text-blue-800 mb-3">Grants &amp; Subsidies</h4>
+              <ul class="text-sm text-blue-700 space-y-1">
+                <li>• EU environmental funds</li>
+                <li>• Turkish government incentives</li>
+                <li>• International development banks</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-800 mb-3">Impact Investment</h4>
+              <ul class="text-sm text-blue-700 space-y-1">
+                <li>• Green venture capital</li>
+                <li>• ESG-focused funds</li>
+                <li>• Climate tech investors</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-semibold text-blue-800 mb-3">Green Bonds</h4>
+              <ul class="text-sm text-blue-700 space-y-1">
+                <li>• Climate-aligned financing</li>
+                <li>• Institutional investors</li>
+                <li>• Long-term capital</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Implementation Plan -->
+      <section id="implementation" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Pilot Project Implementation Plan</h2>
+
+        <p class="text-gray-700 mb-8">
+          The implementation will follow a phased approach over 36 months, systematically de-risking the venture and ensuring successful demonstration of the technology and business model.
+        </p>
+
+        <div class="mermaid-container">
+          <div class="mermaid-controls">
+            <button class="mermaid-control-btn zoom-in" title="放大">
+              <i class="fas fa-search-plus"></i>
+            </button>
+            <button class="mermaid-control-btn zoom-out" title="缩小">
+              <i class="fas fa-search-minus"></i>
+            </button>
+            <button class="mermaid-control-btn reset-zoom" title="重置">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </button>
+            <button class="mermaid-control-btn fullscreen" title="全屏查看">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
+          <div class="mermaid" id="timeline-diagram">
+            timeline
+            title &#34;Project Timeline&#34;
+
+            section &#34;Phase 1&#34;
+            &#34;Months 1-6&#34; : &#34;Project Initiation and Feasibility&#34;
+            : &#34;Secure partnerships&#34;
+            : &#34;Site selection &amp; EIA&#34;
+            : &#34;System design finalization&#34;
+            : &#34;Initial funding&#34;
+
+            section &#34;Phase 2&#34;
+            &#34;Months 7-18&#34; : &#34;Engineering, Procurement, Construction&#34;
+            : &#34;Detailed engineering&#34;
+            : &#34;Equipment procurement&#34;
+            : &#34;Plant construction&#34;
+            : &#34;System installation&#34;
+
+            section &#34;Phase 3&#34;
+            &#34;Months 19-36&#34; : &#34;Commissioning &amp; Demonstration&#34;
+            : &#34;Performance testing&#34;
+            : &#34;Data collection&#34;
+            : &#34;Market demonstration&#34;
+            : &#34;Expansion planning&#34;
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-orange-50 p-6 rounded-lg">
+            <h3 class="font-semibold text-orange-800 mb-4">Phase 1: Initiation</h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <i class="fas fa-handshake text-orange-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Partnerships</h4>
+                  <p class="text-xs text-orange-700">University &amp; government collaboration</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-map-marker-alt text-orange-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Site Selection</h4>
+                  <p class="text-xs text-orange-700">EIA and permitting</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-dollar-sign text-orange-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Funding</h4>
+                  <p class="text-xs text-orange-700">Initial capital raising</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg">
+            <h3 class="font-semibold text-blue-800 mb-4">Phase 2: Construction</h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <i class="fas fa-drafting-compass text-blue-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Engineering</h4>
+                  <p class="text-xs text-blue-700">Detailed design &amp; specifications</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-shopping-cart text-blue-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Procurement</h4>
+                  <p class="text-xs text-blue-700">Equipment sourcing &amp; delivery</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-hammer text-blue-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Construction</h4>
+                  <p class="text-xs text-blue-700">Site preparation &amp; installation</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h3 class="font-semibold text-green-800 mb-4">Phase 3: Operation</h3>
+            <div class="space-y-3">
+              <div class="flex items-start">
+                <i class="fas fa-play text-green-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Commissioning</h4>
+                  <p class="text-xs text-green-700">System testing &amp; optimization</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-chart-line text-green-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Monitoring</h4>
+                  <p class="text-xs text-green-700">Performance data collection</p>
+                </div>
+              </div>
+              <div class="flex items-start">
+                <i class="fas fa-bullseye text-green-600 mt-1 mr-2"></i>
+                <div>
+                  <h4 class="font-medium text-sm">Demonstration</h4>
+                  <p class="text-xs text-green-700">Market validation &amp; expansion</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Strategic Partnerships -->
+      <section id="partnerships" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Strategic Partnerships and Stakeholder Engagement</h2>
+
+        <div class="mb-8">
+          <img src="https://kimi-web-img.moonshot.cn/img/www.universityofcalifornia.edu/77526b35212a95746930937a6f995db90f055451.png" alt="University research partners collaborating on renewable energy project" class="w-full h-64 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="university research collaboration renewable energy" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-indigo-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-university text-indigo-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-indigo-800">University Collaboration</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium mb-2">Joint R&amp;D Opportunities</h4>
+                <ul class="text-sm text-indigo-700 space-y-1">
+                  <li>• Advanced membrane technology development</li>
+                  <li>• Brine valorization research</li>
+                  <li>• Energy optimization studies</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium mb-2">Talent Pipeline</h4>
+                <ul class="text-sm text-indigo-700 space-y-1">
+                  <li>• Student internships and research projects</li>
+                  <li>• Technical expertise access</li>
+                  <li>• Skilled workforce development</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-teal-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-landmark text-teal-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-teal-800">Government Partnership</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium mb-2">Regulatory Support</h4>
+                <ul class="text-sm text-teal-700 space-y-1">
+                  <li>• Permitting and environmental approvals</li>
+                  <li>• Grid connection facilitation</li>
+                  <li>• Water quality compliance</li>
+                </ul>
+              </div>
+              <div>
+                <h4 class="font-medium mb-2">Strategic Alignment</h4>
+                <ul class="text-sm text-teal-700 space-y-1">
+                  <li>• Municipal water strategy integration</li>
+                  <li>• Long-term purchase agreements</li>
+                  <li>• Infrastructure development coordination</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg">
+          <h3 class="font-semibold mb-4">Community Engagement Strategy</h3>
+          <p class="text-gray-700 mb-4">
+            Building social license to operate through transparent communication and community benefits. The engagement program includes:
+          </p>
+          <div class="grid md:grid-cols-3 gap-4">
+            <div>
+              <h4 class="font-medium mb-2">Public Education</h4>
+              <p class="text-sm text-gray-600">Workshops, school visits, and technology demonstrations</p>
+            </div>
+            <div>
+              <h4 class="font-medium mb-2">Environmental Stewardship</h4>
+              <p class="text-sm text-gray-600">Brine management, marine ecosystem protection</p>
+            </div>
+            <div>
+              <h4 class="font-medium mb-2">Economic Benefits</h4>
+              <p class="text-sm text-gray-600">Local employment, technology transfer, infrastructure development</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Risk Assessment -->
+      <section id="risks" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Challenges, Risks, and Mitigation Strategies</h2>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+          <div class="bg-red-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-exclamation-triangle text-red-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-red-800">Technical Risks</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-red-700 mb-2">Renewable Energy Intermittency</h4>
+                <p class="text-sm text-red-600 mb-2">Solar and wind power variability can disrupt continuous operation</p>
+                <div class="bg-red-100 p-2 rounded text-xs text-red-700">
+                  <strong>Mitigation:</strong> Hybrid system design, grid backup, flexible operation
+                </div>
+              </div>
+              <div>
+                <h4 class="font-medium text-red-700 mb-2">Membrane Fouling</h4>
+                <p class="text-sm text-red-600 mb-2">Seawater impurities reduce efficiency and increase maintenance</p>
+                <div class="bg-red-100 p-2 rounded text-xs text-red-700">
+                  <strong>Mitigation:</strong> Robust pre-treatment, proactive maintenance schedule
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-amber-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-chart-line text-amber-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-amber-800">Financial Risks</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-amber-700 mb-2">High Initial Investment</h4>
+                <p class="text-sm text-amber-600 mb-2">Significant upfront capital required for technology deployment</p>
+                <div class="bg-amber-100 p-2 rounded text-xs text-amber-700">
+                  <strong>Mitigation:</strong> Modular pilot approach, grant funding, impact investment
+                </div>
+              </div>
+              <div>
+                <h4 class="font-medium text-amber-700 mb-2">Price Competition</h4>
+                <p class="text-sm text-amber-600 mb-2">Competing with subsidized municipal water prices</p>
+                <div class="bg-amber-100 p-2 rounded text-xs text-amber-700">
+                  <strong>Mitigation:</strong> Target premium markets, emphasize reliability value
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-gavel text-blue-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-blue-800">Regulatory Risks</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <h4 class="font-medium text-blue-700 mb-2">Grid Connection Policies</h4>
+                <p class="text-sm text-blue-600 mb-2">Complex regulations for renewable energy integration</p>
+                <div class="bg-blue-100 p-2 rounded text-xs text-blue-700">
+                  <strong>Mitigation:</strong> Early engagement with TEİAŞ, policy advocacy
+                </div>
+              </div>
+              <div>
+                <h4 class="font-medium text-blue-700 mb-2">Environmental Permitting</h4>
+                <p class="text-sm text-blue-600 mb-2">Lengthy approval processes for brine discharge</p>
+                <div class="bg-blue-100 p-2 rounded text-xs text-blue-700">
+                  <strong>Mitigation:</strong> Comprehensive EIA, community engagement
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Future Opportunities -->
+      <section id="opportunities" class="mb-16">
+        <h2 class="font-serif text-3xl font-bold text-gray-800 mb-8">Hidden Opportunities and Future Outlook</h2>
+
+        <div class="mb-8">
+          <img src="https://kimi-web-img.moonshot.cn/img/media.springernature.com/bbcef60a16bbcca0f7b9cbbb44c0285711029968.png" alt="Renewable energy powered desalination plant" class="w-full h-64 object-cover rounded-lg mb-4" size="medium" aspect="wide" style="photo" query="renewable energy desalination plant" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-island-tropical text-purple-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-purple-800">Energy Island Concept</h3>
+            </div>
+            <p class="text-purple-700 mb-4">
+              The integration of renewable energy with desalination creates potential for co-generation of water and power, providing multiple revenue streams and grid stability services.
+            </p>
+            <ul class="text-sm text-purple-600 space-y-2">
+              <li>• Excess electricity sales during peak generation</li>
+              <li>• Grid stabilization services</li>
+              <li>• Resilient infrastructure hub development</li>
+            </ul>
+          </div>
+
+          <div class="bg-gradient-to-br from-green-50 to-teal-50 p-6 rounded-lg">
+            <div class="flex items-center mb-4">
+              <i class="fas fa-industry text-green-600 text-2xl mr-3"></i>
+              <h3 class="font-semibold text-green-800">Industry Integration</h3>
+            </div>
+            <p class="text-green-700 mb-4">
+              Strategic co-location with other industries creates synergistic relationships and new business opportunities.
+            </p>
+            <ul class="text-sm text-green-600 space-y-2">
+              <li>• Data center cooling and power supply</li>
+              <li>• High-tech agriculture integration</li>
+              <li>• Industrial park water services</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="bg-gray-100 p-8 rounded-lg mb-8">
+          <h3 class="font-serif text-2xl font-semibold mb-6">Long-Term Vision and Expansion Strategy</h3>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h4 class="font-semibold mb-3">Regional Expansion</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                The successful Izmir pilot provides a replicable model for other water-scarce regions in Turkey and the Mediterranean basin.
+              </p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Mediterranean coastal cities</li>
+                <li>• Aegean and Mediterranean islands</li>
+                <li>• Middle East and North Africa</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-3">Technology Development</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                Long-term R&amp;D focus on proprietary technologies to enhance competitive advantage.
+              </p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Advanced membrane materials</li>
+                <li>• Energy recovery optimization</li>
+                <li>• Brine valorization processes</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-semibold mb-3">Circular Economy</h4>
+              <p class="text-sm text-gray-700 mb-3">
+                Development of sustainable byproduct utilization and zero-liquid discharge systems.
+              </p>
+              <ul class="text-xs text-gray-600 space-y-1">
+                <li>• Mineral extraction from brine</li>
+                <li>• Salt-tolerant crop cultivation</li>
+                <li>• Microalgae-based products</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="pull-quote">
+          &#34;The convergence of environmental necessity and economic opportunity positions this startup at the forefront of sustainable water solutions, with potential to transform not just Izmir&#39;s water security, but to establish a replicable model for regions worldwide facing similar challenges.&#34;
+        </div>
+      </section>
+
+      <!-- Conclusion -->
+      <section class="mb-16">
+        <div class="bg-gradient-to-r from-blue-900 to-teal-800 text-white p-8 rounded-lg">
+          <h2 class="font-serif text-3xl font-bold mb-6">The Path Forward</h2>
+          <p class="text-xl mb-6 leading-relaxed">
+            The proposed desalination startup represents a compelling opportunity to address critical water scarcity challenges while building a profitable, sustainable business. By leveraging proven technologies, strategic partnerships, and innovative business models, the venture is positioned to deliver both environmental impact and financial returns.
+          </p>
+          <div class="grid md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <i class="fas fa-leaf text-3xl mb-3"></i>
+              <h3 class="font-semibold mb-2">Environmental Impact</h3>
+              <p class="text-sm opacity-90">Climate-resilient water supply with zero carbon footprint</p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-chart-line text-3xl mb-3"></i>
+              <h3 class="font-semibold mb-2">Economic Viability</h3>
+              <p class="text-sm opacity-90">Diversified revenue streams and clear path to profitability</p>
+            </div>
+            <div class="text-center">
+              <i class="fas fa-globe text-3xl mb-3"></i>
+              <h3 class="font-semibold mb-2">Scalable Model</h3>
+              <p class="text-sm opacity-90">Replicable solution for global water challenges</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+        // Initialize Mermaid with enhanced configuration
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                // Primary colors with high contrast
+                primaryColor: '#ffffff',
+                primaryTextColor: '#1f2937',
+                primaryBorderColor: '#1e3a8a',
+                
+                // Secondary colors
+                secondaryColor: '#f8fafc',
+                secondaryTextColor: '#1f2937',
+                secondaryBorderColor: '#065f46',
+                
+                // Tertiary colors
+                tertiaryColor: '#ecfdf5',
+                tertiaryTextColor: '#065f46',
+                tertiaryBorderColor: '#059669',
+                
+                // Background and text
+                background: '#ffffff',
+                mainBkg: '#ffffff',
+                secondBkg: '#f8fafc',
+                tertiaryBkg: '#ecfdf5',
+                
+                // Lines and borders
+                lineColor: '#6b7280',
+                border1: '#1e3a8a',
+                border2: '#065f46',
+                
+                // Text colors for better contrast
+                textColor: '#1f2937',
+                taskTextColor: '#1f2937',
+                taskTextOutsideColor: '#1f2937',
+                taskTextLightColor: '#6b7280',
+                taskTextDarkColor: '#1f2937',
+                activeTaskTextColor: '#065f46',
+                
+                // Grid and section colors
+                gridColor: '#e5e7eb',
+                section0: '#f8fafc',
+                section1: '#f1f5f9',
+                section2: '#e2e8f0',
+                section3: '#cbd5e1',
+                
+                // Task colors for timeline
+                taskBkgColor: '#ffffff',
+                taskTextColor: '#1f2937',
+                activeTaskBkgColor: '#ecfdf5',
+                activeTaskBorderColor: '#059669',
+                
+                // Today line
+                todayLineColor: '#dc2626'
+            },
+            timeline: {
+                numberSectionStyles: 4,
+                bottomMarginAdj: 1,
+                leftMarginAdj: 0,
+                width: 180,
+                height: 60,
+                boxMargin: 12,
+                boxTextMargin: 8,
+                noteMargin: 12,
+                messageMargin: 40,
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 14,
+                fontWeight: 600
+            }
+        });
+
+        // Initialize Mermaid Controls for zoom and pan
+        function initializeMermaidControls() {
+            const containers = document.querySelectorAll('.mermaid-container');
+
+            containers.forEach(container => {
+            const mermaidElement = container.querySelector('.mermaid');
+            let scale = 1;
+            let isDragging = false;
+            let startX, startY, translateX = 0, translateY = 0;
+
+            // 触摸相关状态
+            let isTouch = false;
+            let touchStartTime = 0;
+            let initialDistance = 0;
+            let initialScale = 1;
+            let isPinching = false;
+
+            // Zoom controls
+            const zoomInBtn = container.querySelector('.zoom-in');
+            const zoomOutBtn = container.querySelector('.zoom-out');
+            const resetBtn = container.querySelector('.reset-zoom');
+            const fullscreenBtn = container.querySelector('.fullscreen');
+
+            function updateTransform() {
+                mermaidElement.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+
+                if (scale > 1) {
+                container.classList.add('zoomed');
+                } else {
+                container.classList.remove('zoomed');
+                }
+
+                mermaidElement.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
+
+            if (zoomInBtn) {
+                zoomInBtn.addEventListener('click', () => {
+                scale = Math.min(scale * 1.25, 4);
+                updateTransform();
+                });
+            }
+
+            if (zoomOutBtn) {
+                zoomOutBtn.addEventListener('click', () => {
+                scale = Math.max(scale / 1.25, 0.3);
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+                updateTransform();
+                });
+            }
+
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                scale = 1;
+                translateX = 0;
+                translateY = 0;
+                updateTransform();
+                });
+            }
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                if (container.requestFullscreen) {
+                    container.requestFullscreen();
+                } else if (container.webkitRequestFullscreen) {
+                    container.webkitRequestFullscreen();
+                } else if (container.msRequestFullscreen) {
+                    container.msRequestFullscreen();
+                }
+                });
+            }
+
+            // Mouse Events
+            mermaidElement.addEventListener('mousedown', (e) => {
+                if (isTouch) return; // 如果是触摸设备，忽略鼠标事件
+
+                isDragging = true;
+                startX = e.clientX - translateX;
+                startY = e.clientY - translateY;
+                mermaidElement.style.cursor = 'grabbing';
+                updateTransform();
+                e.preventDefault();
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging && !isTouch) {
+                translateX = e.clientX - startX;
+                translateY = e.clientY - startY;
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            document.addEventListener('mouseleave', () => {
+                if (isDragging && !isTouch) {
+                isDragging = false;
+                mermaidElement.style.cursor = 'grab';
+                updateTransform();
+                }
+            });
+
+            // 获取两点之间的距离
+            function getTouchDistance(touch1, touch2) {
+                return Math.hypot(
+                touch2.clientX - touch1.clientX,
+                touch2.clientY - touch1.clientY
+                );
+            }
+
+            // Touch Events - 触摸事件处理
+            mermaidElement.addEventListener('touchstart', (e) => {
+                isTouch = true;
+                touchStartTime = Date.now();
+
+                if (e.touches.length === 1) {
+                // 单指拖动
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+
+                } else if (e.touches.length === 2) {
+                // 双指缩放
+                isPinching = true;
+                isDragging = false;
+
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                initialDistance = getTouchDistance(touch1, touch2);
+                initialScale = scale;
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchmove', (e) => {
+                if (e.touches.length === 1 && isDragging && !isPinching) {
+                // 单指拖动
+                const touch = e.touches[0];
+                translateX = touch.clientX - startX;
+                translateY = touch.clientY - startY;
+                updateTransform();
+
+                } else if (e.touches.length === 2 && isPinching) {
+                // 双指缩放
+                const touch1 = e.touches[0];
+                const touch2 = e.touches[1];
+                const currentDistance = getTouchDistance(touch1, touch2);
+
+                if (initialDistance > 0) {
+                    const newScale = Math.min(Math.max(
+                    initialScale * (currentDistance / initialDistance),
+                    0.3
+                    ), 4);
+                    scale = newScale;
+                    updateTransform();
+                }
+                }
+
+                e.preventDefault();
+            }, { passive: false });
+
+            mermaidElement.addEventListener('touchend', (e) => {
+                // 重置状态
+                if (e.touches.length === 0) {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                // 延迟重置isTouch，避免鼠标事件立即触发
+                setTimeout(() => {
+                    isTouch = false;
+                }, 100);
+                } else if (e.touches.length === 1 && isPinching) {
+                // 从双指变为单指，切换为拖动模式
+                isPinching = false;
+                isDragging = true;
+
+                const touch = e.touches[0];
+                startX = touch.clientX - translateX;
+                startY = touch.clientY - translateY;
+                }
+
+                updateTransform();
+            });
+
+            mermaidElement.addEventListener('touchcancel', (e) => {
+                isDragging = false;
+                isPinching = false;
+                initialDistance = 0;
+
+                setTimeout(() => {
+                isTouch = false;
+                }, 100);
+
+                updateTransform();
+            });
+
+            // Enhanced wheel zoom with better center point handling
+            container.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                const rect = container.getBoundingClientRect();
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const delta = e.deltaY > 0 ? 0.9 : 1.1;
+                const newScale = Math.min(Math.max(scale * delta, 0.3), 4);
+
+                // Adjust translation to zoom towards center
+                if (newScale !== scale) {
+                const scaleDiff = newScale / scale;
+                translateX = translateX * scaleDiff;
+                translateY = translateY * scaleDiff;
+                scale = newScale;
+
+                if (scale <= 1) {
+                    translateX = 0;
+                    translateY = 0;
+                }
+
+                updateTransform();
+                }
+            });
+
+            // Initialize display
+            updateTransform();
+            });
+        }
+
+        // Initialize mermaid controls after diagrams are rendered
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for mermaid to render the diagrams
+            setTimeout(() => {
+                initializeMermaidControls();
+            }, 1000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Highlight active section in TOC
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.toc-fixed a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('font-semibold', 'text-blue-800');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('font-semibold', 'text-blue-800');
+                }
+            });
+        });
+    </script>
+  
+
+</body></html>
